@@ -126,6 +126,17 @@ ul { list-style: none; }
 .preloader.glow-active .preloader__tagline { opacity: 1; transform: translateY(0); }
 .preloader.burst .preloader__tagline { opacity: 0; transform: translateY(-10px); transition: opacity 0.3s, transform 0.3s; }
 
+.preloader__by {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400; font-size: 0.7rem; font-style: italic;
+  letter-spacing: 0.08em; color: #706a5e; margin-top: 8px;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0.15s;
+}
+.preloader.glow-active .preloader__by { opacity: 1; transform: translateY(0); }
+.preloader.burst .preloader__by { opacity: 0; transition: opacity 0.2s; }
+
 @media (max-width: 768px) {
   .p3d { font-size: 6rem; }
 }
