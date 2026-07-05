@@ -286,28 +286,28 @@ document.getElementById('submit-btn').addEventListener('click', async () => {
   const fac = document.querySelector('input[name="s-fac"]:checked')?.value || '';
   const retos = [...document.querySelectorAll('input[name="s-reto"]:checked')].map(c => c.value);
 
-  try {
-    await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer pit-b9e24a66-b06c-4d3c-8db6-fde110f03459',
-        'Version': '2021-07-28',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        locationId: 'rxoCRbTMfVLFuPrj9fde',
-        firstName: first, lastName: last, email, phone,
-        source: 'Landing GYC',
-        customFields: [
-          { id: '0NSBaf60xgI7pY9WxRFk', value: fac },
-          { id: 'wmvAZZ6P7pPb0PjVpsSr', value: retos }
-        ]
-      })
-    });
-  } catch (err) { console.error('GHL:', err); }
-
+  // Redirect a WhatsApp primero (no depende de GHL)
   const msg = encodeURIComponent(`Hola Johan, soy ${full}. Tengo una clínica y quiero validar si califica para uno de los cupos.`);
   window.open(`https://wa.me/584141932869?text=${msg}`, '_blank');
+
+  // Enviar a GHL en background (sin bloquear)
+  fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer pit-b9e24a66-b06c-4d3c-8db6-fde110f03459',
+      'Version': '2021-07-28',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      locationId: 'rxoCRbTMfVLFuPrj9fde',
+      firstName: first, lastName: last, email, phone,
+      source: 'Landing GYC',
+      customFields: [
+        { id: '0NSBaf60xgI7pY9WxRFk', value: fac },
+        { id: 'wmvAZZ6P7pPb0PjVpsSr', value: retos }
+      ]
+    })
+  }).catch(err => console.error('GHL:', err));
 
   closeM();
   btn.textContent = 'Enviar y hablar por WhatsApp'; btn.disabled = false; btn.style.opacity = '1';
