@@ -2,28 +2,30 @@
    GROW YOUR CLINIC — v4b
    ======================================== */
 
-// Preloader
+// Preloader 3D
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
-  const letters = preloader.querySelectorAll('.preloader__letter');
+  const letters = preloader.querySelectorAll('.p3d');
 
-  // Letters appear one by one
+  // Letters fly in one by one with 3D rotation
   letters.forEach((l, i) => {
-    setTimeout(() => l.classList.add('visible'), 300 + i * 250);
+    setTimeout(() => l.classList.add('visible'), 300 + i * 300);
   });
 
-  // Glow activates after all letters visible
-  setTimeout(() => preloader.classList.add('glow-active'), 1100);
+  // Glow + idle rotation + tagline
+  setTimeout(() => preloader.classList.add('glow-active'), 1300);
 
-  // Burst and fade out
-  setTimeout(() => preloader.classList.add('burst'), 1800);
+  // Burst explosion
+  setTimeout(() => preloader.classList.add('burst'), 2200);
+
+  // Hide and reveal hero
   setTimeout(() => {
     preloader.classList.add('hidden');
     document.querySelectorAll('.hero .anim-fade').forEach(el => {
       const d = parseFloat(el.dataset.d || 0) * 1000;
       setTimeout(() => el.classList.add('visible'), d);
     });
-  }, 2300);
+  }, 2700);
 });
 
 // Nav
