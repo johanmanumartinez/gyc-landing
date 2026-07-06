@@ -363,7 +363,7 @@ ul { list-style: none; }
   color: var(--gold); display: block; line-height: 0.9; margin-bottom: 16px;
   text-shadow: 0 0 50px rgba(201,168,76,0.2);
 }
-.excl .btn { margin-top: 32px; }
+.excl .btn { margin-top: 32px; position: relative; z-index: 10; }
 
 /* ---- FOOTER ---- */
 .foot { padding: 40px 0; border-top: 1px solid rgba(58,53,47,0.25); text-align: center; }
