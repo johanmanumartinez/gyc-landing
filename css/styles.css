@@ -157,26 +157,25 @@ ul { list-style: none; }
 }
 .dbg__blob {
   position: absolute; border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.07;
+  filter: blur(120px);
   will-change: transform;
 }
 .dbg__blob--1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(201,168,76,0.8) 0%, transparent 70%);
-  top: -10%; right: -5%;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,168,76,0.25) 0%, transparent 65%);
+  top: -15%; right: -10%;
   animation: blobDrift1 20s ease-in-out infinite;
 }
 .dbg__blob--2 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(201,168,76,0.6) 0%, transparent 70%);
-  bottom: 10%; left: -8%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 65%);
+  bottom: 5%; left: -12%;
   animation: blobDrift2 25s ease-in-out infinite;
 }
 .dbg__blob--3 {
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(201,168,76,0.5) 0%, transparent 70%);
-  top: 40%; left: 50%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 60%);
+  top: 40%; left: 45%;
   animation: blobDrift3 22s ease-in-out infinite;
 }
 @keyframes blobDrift1 {
@@ -199,7 +198,7 @@ ul { list-style: none; }
   position: absolute; inset: -50%; width: 200%; height: 200%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 180px 180px;
-  opacity: 0.03;
+  opacity: 0.045;
   animation: noiseShift 8s steps(4) infinite;
 }
 @keyframes noiseShift {
