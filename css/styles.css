@@ -304,7 +304,8 @@ ul { list-style: none; }
 .btn {
   display: inline-block; font-family: var(--l); font-weight: 500; font-size: 0.95rem;
   border: none; cursor: pointer; border-radius: 6px; position: relative;
-  overflow: hidden;
+  overflow: hidden; z-index: 50;
+  pointer-events: auto !important;
   transition: transform 0.3s var(--out), box-shadow 0.3s;
 }
 .btn--gold {
