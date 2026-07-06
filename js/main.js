@@ -70,8 +70,9 @@ if (cEl) cObs.observe(cEl);
 // ========================
 const modal = document.getElementById('modal');
 
-document.querySelectorAll('.open-survey').forEach(b => {
-  b.addEventListener('click', e => { e.preventDefault(); openM(); });
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.open-survey');
+  if (btn) { e.preventDefault(); openM(); }
 });
 
 function openM() {
