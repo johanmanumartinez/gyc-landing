@@ -1,0 +1,24 @@
+/* BACKUP de botones — 2026-07-06 */
+/* Para restaurar, copiar estos estilos de vuelta a styles.css */
+
+.nav__cta {
+  font-family: var(--l); font-weight: 500; font-size: 0.85rem;
+  color: var(--bg); background: var(--gold); padding: 10px 24px; border-radius: 6px;
+  transition: transform 0.3s var(--out), box-shadow 0.3s;
+}
+.nav__cta:hover { transform: scale(1.03); box-shadow: 0 4px 20px rgba(201,168,76,0.3); }
+
+.btn {
+  display: inline-block; font-family: var(--l); font-weight: 500; font-size: 0.95rem;
+  border: none; cursor: pointer; border-radius: 6px; position: relative;
+  transition: transform 0.3s var(--out), box-shadow 0.3s;
+}
+.btn--gold { background: var(--gold); color: var(--bg); padding: 16px 32px; }
+.btn--gold:hover { transform: scale(1.03); box-shadow: 0 6px 28px rgba(201,168,76,0.35); }
+.btn--gold:active { transform: scale(0.98); }
+
+.excl .btn { margin-top: 32px; position: relative; z-index: 10; }
+
+@media (max-width: 768px) {
+  .nav__cta { font-size: 0.78rem; padding: 8px 14px; }
+}
