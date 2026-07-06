@@ -386,6 +386,10 @@ ul { list-style: none; }
   transform: translateY(16px) scale(0.97);
   transition: transform 0.45s var(--out);
 }
+.modal__box--survey {
+  max-width: 560px; padding: 20px 16px 8px;
+  max-height: 90vh; overflow-y: auto;
+}
 .modal.open .modal__box { transform: translateY(0) scale(1); }
 .modal__x {
   position: absolute; top: 14px; right: 18px; background: none; border: none;

@@ -255,68 +255,12 @@
   <!-- ====== SURVEY MODAL ====== -->
   <div class="modal" id="modal">
     <div class="modal__bg" id="modal-bg"></div>
-    <div class="modal__box">
+    <div class="modal__box modal__box--survey">
       <button class="modal__x" id="modal-x">&times;</button>
-      <div class="modal__bar"><div class="modal__bar-fill" id="bar-fill"></div></div>
-
-      <!-- 1 -->
-      <div class="step active" data-step="1">
-        <span class="step__n">1 / 4</span>
-        <h3 class="step__q">¿Cómo te llamas?</h3>
-        <input type="text" id="s-name" class="inp" placeholder="Ej: Johan Martinez">
-        <button class="btn btn--gold btn--w next-btn" data-go="2">Siguiente</button>
-      </div>
-
-      <!-- 2 -->
-      <div class="step" data-step="2">
-        <span class="step__n">2 / 4</span>
-        <h3 class="step__q">¿Cómo te contactamos?</h3>
-        <input type="email" id="s-email" class="inp" placeholder="doctor@tuclinica.com">
-        <div class="phone-row">
-          <div class="code-select" id="code-select">
-            <button type="button" class="code-select__btn" id="code-btn">
-              <span class="code-select__flag" id="code-flag">🇻🇪</span>
-              <span class="code-select__val" id="code-val">+58</span>
-              <span class="code-select__arrow">▾</span>
-            </button>
-            <div class="code-select__dropdown" id="code-dropdown"></div>
-          </div>
-          <input type="tel" id="s-phone" class="inp inp--phone">
-        </div>
-        <button class="btn btn--gold btn--w next-btn" data-go="3">Siguiente</button>
-        <button class="back-btn" data-go="1">← Atrás</button>
-      </div>
-
-      <!-- 3 -->
-      <div class="step" data-step="3">
-        <span class="step__n">3 / 4</span>
-        <h3 class="step__q">¿En qué rango de facturación mensual está tu clínica actualmente?</h3>
-        <div class="opts">
-          <label class="opt"><input type="radio" name="s-fac" value="Menos de $50K"><span>Menos de $50K</span></label>
-          <label class="opt"><input type="radio" name="s-fac" value="$50K - $100K"><span>$50K – $100K</span></label>
-          <label class="opt"><input type="radio" name="s-fac" value="$100K - $200K"><span>$100K – $200K</span></label>
-          <label class="opt"><input type="radio" name="s-fac" value="Mas de $200K"><span>Más de $200K</span></label>
-        </div>
-        <button class="back-btn" data-go="2">← Atrás</button>
-      </div>
-
-      <!-- 4 -->
-      <div class="step" data-step="4">
-        <span class="step__n">4 / 4</span>
-        <h3 class="step__q">¿Cuál es el principal reto de tu clínica que te gustaría resolver hoy mismo?</h3>
-        <p class="step__hint">Puedes seleccionar más de una</p>
-        <div class="opts">
-          <label class="opt"><input type="checkbox" name="s-reto" value="No tengo un flujo constante de pacientes"><span>No tengo un flujo constante de pacientes</span></label>
-          <label class="opt"><input type="checkbox" name="s-reto" value="Tengo pacientes pero no se si es rentable"><span>Tengo pacientes pero no sé si es rentable</span></label>
-          <label class="opt"><input type="checkbox" name="s-reto" value="Mi equipo no convierte los leads que llegan"><span>Mi equipo no convierte los leads que llegan</span></label>
-          <label class="opt"><input type="checkbox" name="s-reto" value="No tengo claridad de mis numeros"><span>No tengo claridad de mis números</span></label>
-          <label class="opt"><input type="checkbox" name="s-reto" value="Mi equipo no da abasto respondiendo mensajes y WhatsApps"><span>Mi equipo no da abasto respondiendo mensajes y WhatsApps</span></label>
-        </div>
-        <button class="btn btn--gold btn--w" id="submit-btn">Enviar y hablar por WhatsApp</button>
-        <button class="back-btn" data-go="3">← Atrás</button>
-      </div>
+      <iframe src="https://api.leadconnectorhq.com/widget/survey/zyUo3H2b15qL7oLF3Y7r" style="border:none;width:100%;min-height:500px;" scrolling="no" id="zyUo3H2b15qL7oLF3Y7r" title="survey"></iframe>
     </div>
   </div>
+  <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
   <script src="js/main.js"></script>
 </body>
