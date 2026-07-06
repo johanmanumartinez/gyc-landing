@@ -387,8 +387,11 @@ ul { list-style: none; }
   transition: transform 0.45s var(--out);
 }
 .modal__box--survey {
-  max-width: 560px; padding: 20px 16px 8px;
-  max-height: 90vh; overflow-y: auto;
+  max-width: 520px; padding: 12px 12px 4px;
+  overflow: hidden;
+}
+.modal__box--survey iframe {
+  min-height: 320px; height: 320px; display: block;
 }
 .modal.open .modal__box { transform: translateY(0) scale(1); }
 .modal__x {
