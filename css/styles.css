@@ -188,10 +188,10 @@ body::after {
 
 /* ---- CURSOR ---- */
 .cursor-glow {
-  position: fixed; width: 500px; height: 500px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(184,148,63,0.04) 0%, transparent 70%);
-  pointer-events: none !important; z-index: 0; display: none;
-  transition: opacity 0.3s;
+  position: fixed; width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, rgba(201,168,76,0.05) 35%, transparent 65%);
+  pointer-events: none !important; z-index: 1; display: none;
+  mix-blend-mode: multiply;
 }
 @media (hover:hover) { .cursor-glow { display: block; } }
 
