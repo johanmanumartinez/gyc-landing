@@ -35,7 +35,7 @@ if (matchMedia('(hover:hover)').matches) {
   (function lerpCursor() {
     cx += (mx - cx) * 0.08;
     cy += (my - cy) * 0.08;
-    glow.style.transform = `translate(${cx - 250}px,${cy - 250}px)`;
+    glow.style.transform = `translate(${cx - 60}px,${cy - 60}px)`;
     requestAnimationFrame(lerpCursor);
   })();
 }
