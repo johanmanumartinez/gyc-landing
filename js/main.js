@@ -1,5 +1,5 @@
 /* ========================================
-   GROW YOUR CLINIC — v5
+   GROW YOUR CLINIC — v6 PREMIUM
    ======================================== */
 
 // Preloader 3D
@@ -22,20 +22,25 @@ window.addEventListener('load', () => {
   }, 2700);
 });
 
-// Nav
+// Nav scroll
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', scrollY > 50);
 }, { passive: true });
 
-// Cursor
+// Cursor glow
 const glow = document.getElementById('cursor-glow');
 if (matchMedia('(hover:hover)').matches) {
-  document.addEventListener('mousemove', e => {
-    glow.style.transform = `translate(${e.clientX - 240}px,${e.clientY - 240}px)`;
-  });
+  let mx = 0, my = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function lerpCursor() {
+    cx += (mx - cx) * 0.08;
+    cy += (my - cy) * 0.08;
+    glow.style.transform = `translate(${cx - 250}px,${cy - 250}px)`;
+    requestAnimationFrame(lerpCursor);
+  })();
 }
 
-// Reveals
+// Scroll reveals with stagger
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -44,10 +49,10 @@ const obs = new IntersectionObserver(entries => {
       obs.unobserve(e.target);
     }
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.06, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Counter
+// Counter animation
 const cEl = document.getElementById('excl-counter');
 let cDone = false;
 const cObs = new IntersectionObserver(entries => {
@@ -64,6 +69,15 @@ const cObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.5 });
 if (cEl) cObs.observe(cEl);
+
+// Card spotlight hover (mouse-tracking radial glow)
+document.querySelectorAll('.card, .mcard, .icard, .bcard').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+});
 
 // ========================
 // SURVEY MODAL
@@ -86,3 +100,4 @@ function closeM() {
 
 document.getElementById('modal-x').addEventListener('click', closeM);
 document.getElementById('modal-bg').addEventListener('click', closeM);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeM(); });

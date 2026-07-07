@@ -52,7 +52,7 @@
         <p class="hero__p anim-fade" data-d="0.9">
           Cuando operas tu clínica solo desde la perspectiva de un profesional de la salud, tienes un techo. Y ese techo no se rompe con más esfuerzo médico — se rompe con un sistema potenciado con inteligencia artificial, optimizado específicamente para tu nicho de salud.
         </p>
-        <a href="#" class="btn btn--gold open-survey anim-fade" data-d="1.1" onclick="event.preventDefault();openM();">Hablemos de tu clínica</a>
+        <a href="#" class="btn btn--gold open-survey anim-fade" data-d="1.1" onclick="event.preventDefault();openM();">Hablemos de tu clínica <span class="btn__arrow">&rarr;</span></a>
       </div>
     </div>
     <div class="hero__scroll anim-fade" data-d="1.4">
@@ -61,8 +61,8 @@
   </section>
 
   <!-- ====== 01 · PROBLEMA ====== -->
-  <div class="line"><div class="line__inner"></div></div>
-  <section class="sec" id="problema">
+  <section class="sec sec--glow" id="problema">
+    <div class="sec__glow sec__glow--bl"></div>
     <div class="wrap">
       <span class="tag reveal">01 · El problema</span>
       <h2 class="sec__h2 reveal" data-d="0.1">
@@ -85,8 +85,8 @@
   </section>
 
   <!-- ====== 02 · QUIEBRE ====== -->
-  <div class="line"><div class="line__inner"></div></div>
-  <section class="sec" id="quiebre">
+  <section class="sec sec--alt sec--glow" id="quiebre">
+    <div class="sec__glow sec__glow--tr"></div>
     <div class="wrap">
       <span class="tag reveal">02 · El quiebre</span>
       <h2 class="sec__h2 reveal" data-d="0.1">
@@ -109,8 +109,8 @@
   </section>
 
   <!-- ====== 03 · MÉTODO ====== -->
-  <div class="line"><div class="line__inner"></div></div>
-  <section class="sec" id="metodo">
+  <section class="sec sec--glow" id="metodo">
+    <div class="sec__glow sec__glow--bl"></div>
     <div class="wrap">
       <span class="tag reveal">03 · El método</span>
       <h2 class="sec__h2 reveal" data-d="0.1">
@@ -146,8 +146,8 @@
   </section>
 
   <!-- ====== 04 · QUÉ INCLUYE ====== -->
-  <div class="line"><div class="line__inner"></div></div>
-  <section class="sec" id="incluye">
+  <section class="sec sec--alt sec--glow" id="incluye">
+    <div class="sec__glow sec__glow--tr"></div>
     <div class="wrap">
       <span class="tag reveal">04 · Qué incluye</span>
       <h2 class="sec__h2 reveal" data-d="0.1">
@@ -155,32 +155,32 @@
       </h2>
       <div class="cards-3">
         <div class="icard reveal" data-d="0.1">
-          <div class="icard__dot"></div>
+          <div class="icard__icon">&#9783;</div>
           <h4 class="icard__t">Sistema de adquisición</h4>
           <p>Campañas de tráfico pagado diseñadas para traer pacientes calificados a tu clínica todos los días.</p>
         </div>
         <div class="icard reveal" data-d="0.15">
-          <div class="icard__dot"></div>
+          <div class="icard__icon">&#9881;</div>
           <h4 class="icard__t">Asistente IA</h4>
           <p>Un agente inteligente que responde, califica y agenda pacientes 24/7 — sin saturar a tu equipo.</p>
         </div>
         <div class="icard reveal" data-d="0.2">
-          <div class="icard__dot"></div>
+          <div class="icard__icon">&#9776;</div>
           <h4 class="icard__t">CRM y automatizaciones</h4>
           <p>Sistema completo para que ningún lead se pierda. Seguimiento automático, recordatorios y pipeline.</p>
         </div>
         <div class="icard reveal" data-d="0.25">
-          <div class="icard__dot"></div>
+          <div class="icard__icon">&#9673;</div>
           <h4 class="icard__t">Dashboard de métricas</h4>
           <p>Visibilidad total: CAC, ROAS, servicios más rentables, capacidad operativa — en tiempo real.</p>
         </div>
         <div class="icard reveal" data-d="0.3">
-          <div class="icard__dot"></div>
+          <div class="icard__icon">&#9742;</div>
           <h4 class="icard__t">Llamadas estratégicas</h4>
           <p>Sesiones 1:1 para tomar decisiones de empresario con datos, no con intuición.</p>
         </div>
         <div class="icard reveal" data-d="0.35">
-          <div class="icard__dot"></div>
+          <div class="icard__icon">&#8635;</div>
           <h4 class="icard__t">Sistema de retención</h4>
           <p>Reactivación, cross-sell y referidos automatizados. Creces sobre la base que ya tienes.</p>
         </div>
@@ -189,8 +189,8 @@
   </section>
 
   <!-- ====== 05 · GARANTÍA ====== -->
-  <div class="line"><div class="line__inner"></div></div>
-  <section class="sec" id="garantia">
+  <section class="sec sec--glow" id="garantia">
+    <div class="sec__glow sec__glow--bl"></div>
     <div class="wrap">
       <span class="tag reveal">05 · Garantía</span>
       <h2 class="sec__h2 reveal" data-d="0.1">
@@ -204,8 +204,8 @@
   </section>
 
   <!-- ====== 06 · BONOS ====== -->
-  <div class="line"><div class="line__inner"></div></div>
-  <section class="sec" id="bonos">
+  <section class="sec sec--alt sec--glow" id="bonos">
+    <div class="sec__glow sec__glow--tr"></div>
     <div class="wrap">
       <span class="tag reveal">06 · Incluido sin costo extra</span>
       <h2 class="sec__h2 reveal" data-d="0.1">
@@ -213,18 +213,22 @@
       </h2>
       <div class="cards-2">
         <div class="bcard reveal" data-d="0.1">
+          <div class="bcard__icon">&#9670;</div>
           <h4 class="bcard__t">Profit Compass</h4>
           <p>Calculadora interactiva de inversión y rentabilidad. Mete tus números y ve exactamente cuánto invertir, tu CAC real y el impacto de cada decisión.</p>
         </div>
         <div class="bcard reveal" data-d="0.2">
+          <div class="bcard__icon">&#9733;</div>
           <h4 class="bcard__t">Playbook de Pricing</h4>
           <p>Guía para mapear tus servicios, identificar los más rentables y ajustar precios. El bono que puede pagar toda tu inversión antes del primer anuncio.</p>
         </div>
         <div class="bcard reveal" data-d="0.3">
+          <div class="bcard__icon">&#9650;</div>
           <h4 class="bcard__t">De Doctor a Empresario</h4>
           <p>Portal de mentalidad empresarial: módulos sobre liderazgo, gestión, decisiones basadas en datos y la transición de profesional a dueño de negocio.</p>
         </div>
         <div class="bcard reveal" data-d="0.4">
+          <div class="bcard__icon">&#9889;</div>
           <h4 class="bcard__t">AI-Ready Clinic</h4>
           <p>Optimización de tu presencia digital para que las IAs recomienden tu clínica cuando alguien busque tu especialidad.</p>
         </div>
@@ -240,7 +244,7 @@
         <span class="excl__num reveal" id="excl-counter">3</span>
         <h2 class="sec__h2 sec__h2--c reveal" data-d="0.1">Solo trabajo con <span class="gold">3 clínicas</span> a la vez.</h2>
         <p class="sec__p sec__p--c reveal" data-d="0.15">Para garantizar atención completa y resultados reales. Sin excepciones.</p>
-        <a href="#" class="btn btn--gold open-survey reveal" data-d="0.2" onclick="event.preventDefault();openM();">Quiero ser una de ellas</a>
+        <a href="#" class="btn btn--gold open-survey reveal" data-d="0.2" onclick="event.preventDefault();openM();">Quiero ser una de ellas <span class="btn__arrow">&rarr;</span></a>
       </div>
     </div>
   </section>
@@ -249,7 +253,7 @@
   <footer class="foot">
     <div class="wrap">
       <span class="nav__logo">Grow Your Clinic</span>
-      <p class="foot__copy">© 2026 Grow Your Clinic — Johan Martinez. Todos los derechos reservados.</p>
+      <p class="foot__copy">&copy; 2026 Grow Your Clinic — Johan Martinez. Todos los derechos reservados.</p>
     </div>
   </footer>
 
