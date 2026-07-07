@@ -163,10 +163,10 @@ ul { list-style: none; }
 body::before {
   content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(200,175,100,0.4) 0%, transparent 100%),
-    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(170,145,90,0.35) 0%, transparent 100%),
-    radial-gradient(ellipse 55% 45% at 60% 80%, rgba(185,160,105,0.38) 0%, transparent 100%),
-    radial-gradient(ellipse 45% 55% at 10% 70%, rgba(160,140,95,0.3) 0%, transparent 100%);
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(200,175,100,0.15) 0%, transparent 100%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(170,145,90,0.12) 0%, transparent 100%),
+    radial-gradient(ellipse 55% 45% at 60% 80%, rgba(185,160,105,0.14) 0%, transparent 100%),
+    radial-gradient(ellipse 45% 55% at 10% 70%, rgba(160,140,95,0.1) 0%, transparent 100%);
   background-size: 200% 200%;
   animation: meshMove 16s ease-in-out infinite alternate;
 }
