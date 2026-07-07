@@ -624,7 +624,22 @@ body::after {
   text-align: center;
   background: var(--bg-warm);
 }
-.foot .nav__logo { display: block; margin-bottom: 10px; }
+.foot .nav__logo { display: block; margin-bottom: 16px; }
+.foot__social {
+  display: flex; justify-content: center; gap: 24px; margin-bottom: 20px;
+}
+.foot__link {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--l); font-size: 0.82rem; font-weight: 500;
+  color: var(--grey); padding: 8px 16px;
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 8px;
+  transition: color 0.3s, border-color 0.3s, transform 0.3s var(--out);
+}
+.foot__link:hover {
+  color: var(--fg); border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.foot__link svg { flex-shrink: 0; }
 .foot__copy { font-size: 0.75rem; color: var(--grey-light); letter-spacing: 0.02em; }
 
 /* ==========================
