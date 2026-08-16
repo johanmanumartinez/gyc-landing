@@ -781,6 +781,32 @@ body::after {
 }
 .back-btn:hover { color: var(--fg); }
 
+/* ---- FAQ ---- */
+.faq { max-width: 740px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
+.faq__item {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: background 0.3s;
+}
+.faq__item[open] { background: rgba(184,148,63,0.03); }
+.faq__q {
+  font-family: var(--l); font-weight: 500; font-size: 1.05rem;
+  color: var(--fg); padding: 22px 40px 22px 0; cursor: pointer;
+  list-style: none; position: relative; line-height: 1.5;
+  transition: color 0.3s;
+}
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::after {
+  content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  font-size: 1.4rem; color: var(--gold); font-weight: 300;
+  transition: transform 0.3s;
+}
+.faq__item[open] .faq__q::after { content: '−'; }
+.faq__q:hover { color: var(--gold); }
+.faq__a {
+  font-family: var(--l); font-size: 0.95rem; color: var(--grey);
+  line-height: 1.7; padding: 0 0 22px 0; margin: 0;
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   .wrap { padding: 0 28px; }
