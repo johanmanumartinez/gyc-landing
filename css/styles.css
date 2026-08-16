@@ -647,9 +647,8 @@ body::after {
   color: var(--grey-light); text-decoration: none;
 }
 .foot__link--legal:hover { color: var(--gold); border: none; transform: none; }
-.about__role {
-  font-family: var(--l); font-size: 0.9rem; color: var(--grey);
-  margin-top: -8px; margin-bottom: 8px; text-align: center;
+.about__sep {
+  color: var(--grey-light); font-weight: 400;
 }
 .about__social {
   display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 32px;
