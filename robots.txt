@@ -1,0 +1,40 @@
+# Grow Your Clinic — growyourclinic.site
+
+# Allow all crawlers by default
+User-agent: *
+Allow: /
+
+# Allow AI search and agent use
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: FirecrawlAgent
+Allow: /
+
+User-agent: AndiBot
+Allow: /
+
+User-agent: ExaBot
+Allow: /
+
+# Allow traditional search indexing
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# LLM-readable business description
+Allow: /llms.txt
+
+# Sitemap
+Sitemap: https://growyourclinic.site/sitemap.xml

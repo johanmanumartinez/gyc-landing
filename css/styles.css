@@ -639,6 +639,17 @@ body::after {
   transform: translateY(-2px);
 }
 .foot__link svg { flex-shrink: 0; }
+.foot__legal {
+  display: flex; justify-content: center; gap: 24px; margin-bottom: 16px;
+}
+.foot__link--legal {
+  font-size: 0.78rem; border: none; padding: 0;
+  color: var(--grey-light); text-decoration: none;
+}
+.foot__link--legal:hover { color: var(--gold); border: none; transform: none; }
+.about__social {
+  display: flex; justify-content: center; gap: 24px; margin-top: 32px;
+}
 .foot__copy { font-size: 0.75rem; color: var(--grey-light); letter-spacing: 0.02em; }
 
 /* ==========================
