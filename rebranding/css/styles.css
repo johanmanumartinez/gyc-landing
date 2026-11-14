@@ -388,7 +388,7 @@ body::after {
 
 /* Alternating section backgrounds */
 .sec--alt {
-  background: var(--bg-alt);
+  background: var(--gyc-espresso-2);
   position: relative;
 }
 .sec--alt::before {
