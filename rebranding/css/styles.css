@@ -174,22 +174,9 @@ ul { list-style: none; }
 @media (max-width: 768px) { .p3d { font-size: 6rem; } }
 @media (max-width: 480px) { .p3d { font-size: 4.5rem; } }
 
-/* ---- ANIMATED MESH GRADIENT BG ---- */
-body::before {
-  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background:
-    radial-gradient(ellipse 80% 70% at 25% 15%, rgba(201,168,76,0.06) 0%, transparent 100%),
-    radial-gradient(ellipse 75% 80% at 80% 25%, rgba(184,148,63,0.05) 0%, transparent 100%),
-    radial-gradient(ellipse 85% 65% at 55% 85%, rgba(212,184,106,0.06) 0%, transparent 100%),
-    radial-gradient(ellipse 70% 75% at 10% 65%, rgba(195,165,80,0.045) 0%, transparent 100%);
-  background-size: 250% 250%;
-  animation: meshMove 20s ease-in-out infinite alternate;
-}
+/* ---- ANIMATED MESH GRADIENT BG — desactivado, fondo limpio ---- */
 @keyframes meshMove {
   0% { background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%; }
-  25% { background-position: 30% 20%, 70% 40%, 80% 60%, 20% 80%; }
-  50% { background-position: 50% 50%, 50% 20%, 40% 80%, 60% 40%; }
-  75% { background-position: 70% 30%, 30% 60%, 60% 40%, 40% 70%; }
   100% { background-position: 100% 100%, 0% 100%, 0% 0%, 100% 0%; }
 }
 
