@@ -317,8 +317,9 @@ body::after {
   transition: transform 0.35s var(--out), box-shadow 0.35s;
 }
 .btn--gold {
-  background: linear-gradient(180deg, var(--gyc-camel) 0%, var(--gyc-camel-hover) 100%);
-  color: var(--gyc-espresso); padding: 18px 38px;
+  background: linear-gradient(180deg, #2A1B12 0%, #180F08 100%);
+  color: var(--gyc-camel); padding: 18px 38px;
+  border: 1px solid rgba(199,154,106,0.25);
   box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset,
               0 6px 20px rgba(0,0,0,0.12);
   letter-spacing: 0.01em;
@@ -387,7 +388,7 @@ body::after {
 
 /* Alternating section backgrounds */
 .sec--alt {
-  background: var(--gyc-espresso-2);
+  background: var(--bg-alt);
   position: relative;
 }
 .sec--alt::before {
