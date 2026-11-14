@@ -2,24 +2,34 @@
    GROW YOUR CLINIC — v6 PREMIUM
    ======================================== */
 
-// Preloader 3D
+// Preloader — isotipo animado
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
-  const letters = preloader.querySelectorAll('.p3d');
+  const dots = preloader.querySelectorAll('.p-dot');
+  const line = preloader.querySelector('.p-line');
 
-  letters.forEach((l, i) => {
-    setTimeout(() => l.classList.add('visible'), 300 + i * 300);
+  // Círculos aparecen uno a uno con bounce
+  dots.forEach((d, i) => {
+    setTimeout(() => d.classList.add('visible'), 200 + i * 320);
   });
 
-  setTimeout(() => preloader.classList.add('glow-active'), 1300);
-  setTimeout(() => preloader.classList.add('burst'), 2200);
+  // Línea se dibuja tras el último círculo
+  setTimeout(() => line.classList.add('draw'), 200 + 3 * 320);
+
+  // Glow + texto
+  setTimeout(() => preloader.classList.add('glow-active'), 1550);
+
+  // Burst
+  setTimeout(() => preloader.classList.add('burst'), 2500);
+
+  // Hidden
   setTimeout(() => {
     preloader.classList.add('hidden');
     document.querySelectorAll('.hero .anim-fade').forEach(el => {
       const d = parseFloat(el.dataset.d || 0) * 1000;
       setTimeout(() => el.classList.add('visible'), d);
     });
-  }, 2700);
+  }, 3100);
 });
 
 // Nav scroll

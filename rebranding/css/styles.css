@@ -83,96 +83,88 @@ ul { list-style: none; }
   50% { opacity: 0.5; box-shadow: 0 0 6px rgba(184,148,63,0.3); }
 }
 
-/* ---- PRELOADER 3D ---- */
+/* ---- PRELOADER — ISOTIPO ANIMADO ---- */
 .preloader {
   position: fixed; inset: 0; z-index: 9999; background: var(--bg);
   display: flex; align-items: center; justify-content: center;
-  perspective: 900px;
   transition: opacity 0.9s cubic-bezier(0.76,0,0.24,1), visibility 0.9s;
   overflow: hidden;
 }
 .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
 .preloader__glow {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   width: 0; height: 0; border-radius: 50%;
-  background: radial-gradient(circle, rgba(184,148,63,0.2) 0%, rgba(184,148,63,0.04) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(199,154,106,0.18) 0%, rgba(199,154,106,0.04) 40%, transparent 70%);
   transition: width 1s var(--out), height 1s var(--out), opacity 0.8s;
   opacity: 0; filter: blur(60px);
 }
-.preloader.glow-active .preloader__glow { width: 700px; height: 700px; opacity: 1; }
+.preloader.glow-active .preloader__glow { width: 600px; height: 600px; opacity: 1; }
 .preloader.burst .preloader__glow {
-  width: 2400px; height: 2400px; opacity: 0;
-  transition: width 0.8s var(--out), height 0.8s var(--out), opacity 0.5s 0.3s;
+  width: 2000px; height: 2000px; opacity: 0;
+  transition: width 0.7s var(--out), height 0.7s var(--out), opacity 0.4s 0.2s;
 }
 
 .preloader__scene {
   position: relative; z-index: 2;
   display: flex; flex-direction: column; align-items: center;
-  transform-style: preserve-3d;
-}
-.preloader__letters {
-  display: flex; gap: 8px;
-  transform-style: preserve-3d;
-  animation: p3dIdle 4s ease-in-out infinite;
-  animation-play-state: paused;
-}
-.preloader.glow-active .preloader__letters { animation-play-state: running; }
-@keyframes p3dIdle {
-  0%, 100% { transform: rotateX(0deg) rotateY(0deg); }
-  25% { transform: rotateX(2deg) rotateY(-3deg); }
-  75% { transform: rotateX(-2deg) rotateY(3deg); }
 }
 
-.p3d {
-  font-family: 'Fraunces', serif;
-  font-weight: 600; font-size: 10rem;
-  color: var(--gold); opacity: 0; display: inline-block;
-  transform: translateZ(-120px) rotateY(30deg) scale(0.6);
-  transition: opacity 0.6s var(--out), transform 0.8s var(--out), text-shadow 0.6s, color 0.6s;
-  letter-spacing: 0.03em; line-height: 1;
+/* Mark — el isotipo */
+.preloader__mark {
+  width: 150px; height: 150px;
+  color: var(--gold);
+  transition: transform 0.5s var(--out), opacity 0.4s;
 }
-.p3d.visible { opacity: 1; transform: translateZ(0px) rotateY(0deg) scale(1); }
-.preloader.glow-active .p3d {
-  text-shadow: 0 0 30px rgba(184,148,63,0.4), 0 0 80px rgba(184,148,63,0.2),
-    0 0 140px rgba(184,148,63,0.08), 0 6px 12px rgba(0,0,0,0.1);
-  color: var(--gold-b);
+.preloader__mark svg { width: 100%; height: 100%; overflow: visible; }
+
+.preloader.glow-active .preloader__mark {
+  filter: drop-shadow(0 0 24px rgba(199,154,106,0.35)) drop-shadow(0 0 60px rgba(199,154,106,0.15));
 }
-.preloader.burst .p3d {
-  transform: translateZ(100px) rotateY(-12deg) scale(1.25);
-  opacity: 0; transition: transform 0.5s var(--out), opacity 0.35s 0.1s;
+.preloader.burst .preloader__mark {
+  transform: scale(1.3);
+  opacity: 0;
+  transition: transform 0.5s var(--out), opacity 0.35s 0.1s;
 }
 
-.preloader__line {
-  width: 0; height: 1px; margin-top: 24px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
-  transition: width 0.8s var(--out);
+/* Dots — aparecen con bounce */
+.p-dot {
+  fill: currentColor;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.preloader.glow-active .preloader__line { width: 240px; }
-.preloader.burst .preloader__line { width: 0; opacity: 0; transition: width 0.3s, opacity 0.3s; }
+.p-dot.visible { transform: scale(1); }
 
+/* Line — se dibuja progresivamente */
+.p-line {
+  stroke: currentColor;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  transition: stroke-dashoffset 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.p-line.draw { stroke-dashoffset: 0; }
+
+/* Texto */
 .preloader__tagline {
-  font-family: 'Schibsted Grotesk', sans-serif;
-  font-weight: 500; font-size: 0.8rem;
-  letter-spacing: 0.3em; color: var(--grey-light); margin-top: 14px;
+  font-family: var(--l); font-weight: 500; font-size: 0.78rem;
+  letter-spacing: 0.3em; color: var(--gyc-beige); margin-top: 28px;
   opacity: 0; transform: translateY(10px);
   transition: opacity 0.6s var(--out), transform 0.6s var(--out);
 }
-.preloader.glow-active .preloader__tagline { opacity: 1; transform: translateY(0); }
+.preloader.glow-active .preloader__tagline { opacity: 0.9; transform: translateY(0); }
 .preloader.burst .preloader__tagline { opacity: 0; transform: translateY(-10px); transition: opacity 0.3s, transform 0.3s; }
 
 .preloader__by {
-  font-family: 'Schibsted Grotesk', sans-serif;
-  font-weight: 400; font-size: 0.7rem;
-  letter-spacing: 0.2em; color: var(--grey-light); margin-top: 10px;
-  opacity: 0; transform: translateY(8px) scale(0.95);
-  transition: opacity 0.7s var(--out), transform 0.7s var(--out), color 0.5s;
-  transition-delay: 0.3s;
+  font-family: var(--l); font-weight: 400; font-size: 0.68rem;
+  letter-spacing: 0.18em; color: var(--gyc-humo); margin-top: 8px;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.6s var(--out), transform 0.6s var(--out);
+  transition-delay: 0.2s;
 }
-.preloader.glow-active .preloader__by { opacity: 0.6; transform: translateY(0) scale(1); }
-.preloader.burst .preloader__by { opacity: 0; transform: translateY(-6px) scale(0.95); transition: opacity 0.25s, transform 0.25s; }
-
-@media (max-width: 768px) { .p3d { font-size: 6rem; } }
-@media (max-width: 480px) { .p3d { font-size: 4.5rem; } }
+.preloader.glow-active .preloader__by { opacity: 0.7; transform: translateY(0); }
+.preloader.burst .preloader__by { opacity: 0; transform: translateY(-6px); transition: opacity 0.25s, transform 0.25s; }
 
 /* ---- BACKGROUND MARKS (isotipo geometry) ---- */
 .bg-marks {
