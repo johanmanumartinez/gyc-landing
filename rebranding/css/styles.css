@@ -690,7 +690,7 @@ body::after {
 .about__img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 32%;
+  object-position: center 48%;
   display: block;
 }
 
