@@ -174,10 +174,31 @@ ul { list-style: none; }
 @media (max-width: 768px) { .p3d { font-size: 6rem; } }
 @media (max-width: 480px) { .p3d { font-size: 4.5rem; } }
 
-/* ---- ANIMATED MESH GRADIENT BG — desactivado, fondo limpio ---- */
-@keyframes meshMove {
-  0% { background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%; }
-  100% { background-position: 100% 100%, 0% 100%, 0% 0%, 100% 0%; }
+/* ---- BACKGROUND MARKS (isotipo geometry) ---- */
+.bg-marks {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+}
+.bg-mark {
+  position: absolute; color: var(--gyc-camel);
+}
+.bg-mark svg { width: 100%; height: 100%; display: block; }
+
+.bg-mark--a {
+  width: 520px; height: 520px;
+  top: -100px; right: -100px;
+  opacity: 0.055;
+  animation: markFloat 22s ease-in-out infinite;
+}
+.bg-mark--b {
+  width: 300px; height: 300px;
+  bottom: 8%; left: -60px;
+  opacity: 0.03;
+  animation: markFloat 28s ease-in-out infinite reverse;
+}
+@keyframes markFloat {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  33%  { transform: rotate(4deg) scale(1.04); }
+  66%  { transform: rotate(-3deg) scale(0.97); }
 }
 
 /* Grain overlay */
