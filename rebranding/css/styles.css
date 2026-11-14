@@ -15,7 +15,7 @@
   --gyc-humo:       #8C7B6B;
 
   /* Semánticos — modo dark espresso */
-  --bg:           var(--gyc-espresso);
+  --bg:           #221510;
   --bg-warm:      var(--gyc-espresso-2);
   --bg-alt:       #221510;
   --fg:           var(--gyc-beige);
