@@ -168,4 +168,25 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.clas
 
   window.addEventListener('scroll', onScroll, { passive: true });
   setTimeout(onScroll, 250);
+
+  // Observer directo para la estrella — se activa cuando entra al viewport
+  if (star) {
+    new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        star.classList.add('active');
+        // Extender fill hasta el centro de la estrella
+        const container = fill.parentElement;
+        const cr = container.getBoundingClientRect();
+        const firstDotEl = dots[0] && dots[0].querySelector('.stl__dot');
+        const sr = star.getBoundingClientRect();
+        if (firstDotEl) {
+          const fr = firstDotEl.getBoundingClientRect();
+          const startY = fr.top + fr.height / 2 - cr.top;
+          const endY   = sr.top + sr.height / 2 - cr.top;
+          fill.style.top    = startY + 'px';
+          fill.style.height = Math.max(0, endY - startY) + 'px';
+        }
+      }
+    }, { threshold: 0.4 }).observe(star);
+  }
 })();
