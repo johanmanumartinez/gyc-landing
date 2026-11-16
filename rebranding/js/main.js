@@ -81,7 +81,7 @@ const cObs = new IntersectionObserver(entries => {
 if (cEl) cObs.observe(cEl);
 
 // Card spotlight hover (mouse-tracking radial glow)
-document.querySelectorAll('.card, .mcard, .icard, .bcard').forEach(card => {
+document.querySelectorAll('.card, .mcard, .icard, .bcard, .plus-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
     card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
