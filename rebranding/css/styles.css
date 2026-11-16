@@ -1094,8 +1094,120 @@ body::after {
   text-transform: uppercase; text-align: center;
 }
 
+/* ---- INVERTED GOLD BUTTON ---- */
+.btn--gold-inv {
+  background: linear-gradient(180deg, var(--gyc-camel) 0%, var(--gyc-camel-hover) 100%);
+  color: var(--gyc-espresso); padding: 18px 38px;
+  border: 1px solid rgba(199,154,106,0.3);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset,
+              0 6px 20px rgba(199,154,106,0.18);
+  letter-spacing: 0.01em; font-weight: 600;
+}
+.btn--gold-inv::after {
+  content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%);
+  animation: btnShimmer 5s ease-in-out infinite; pointer-events: none;
+}
+.btn--gold-inv:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset,
+              0 12px 40px rgba(199,154,106,0.3);
+}
+.btn--gold-inv:active { transform: translateY(0) scale(0.97); transition-duration: 0.1s; }
+
+/* ---- SISTEMA LAYOUT (sticky timeline) ---- */
+.sistema-body {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 52px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.sistema-tl {
+  position: sticky;
+  top: 110px;
+  padding-top: 28px;
+}
+
+.stl {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Background track */
+.stl::before {
+  content: '';
+  position: absolute;
+  left: 11px; top: 12px; bottom: 12px;
+  width: 1px;
+  background: rgba(199,154,106,0.14);
+  z-index: 0;
+}
+
+/* Animated fill */
+.stl__fill {
+  position: absolute;
+  left: 11px; top: 12px;
+  width: 1px; height: 0%;
+  background: linear-gradient(to bottom, var(--gold), rgba(199,154,106,0.4));
+  z-index: 1;
+  transition: height 0.3s var(--ease-out-expo);
+}
+
+.stl__item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 0;
+  position: relative; z-index: 2;
+  opacity: 0.35;
+  transition: opacity 0.5s var(--out);
+  cursor: default;
+}
+.stl__item.active { opacity: 1; }
+
+.stl__dot {
+  width: 23px; height: 23px; border-radius: 50%; flex-shrink: 0;
+  border: 1.5px solid rgba(199,154,106,0.25);
+  background: var(--gyc-espresso-2);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 2;
+  transition: border-color 0.4s, box-shadow 0.4s, background 0.4s;
+}
+.stl__item.active .stl__dot {
+  border-color: var(--gold);
+  background: rgba(199,154,106,0.1);
+  box-shadow: 0 0 10px rgba(199,154,106,0.3);
+}
+
+.stl__dot-inner {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(199,154,106,0.35);
+  transition: background 0.4s, transform 0.4s;
+}
+.stl__item.active .stl__dot-inner {
+  background: var(--gold); transform: scale(1.1);
+}
+
+.stl__label {
+  font-family: var(--l); font-size: 0.68rem; font-weight: 600;
+  color: var(--fg-soft); letter-spacing: 0.08em;
+  text-transform: uppercase; white-space: nowrap;
+  transition: color 0.4s;
+}
+.stl__item.active .stl__label { color: var(--gold); }
+
+/* ---- PLUS SUBHEADLINE ---- */
+.plus-header { margin-top: 72px; margin-bottom: 10px; }
+.plus-header__h {
+  font-family: var(--d); font-weight: 600;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  color: var(--fg); line-height: 1.2;
+}
+
 /* ---- SECTION CTAs ---- */
-.sec__cta { margin-top: 56px; display: flex; justify-content: center; }
+.sec__cta { margin-top: 44px; display: flex; justify-content: center; }
 .sec__cta-soft {
   margin-top: 52px; display: flex; flex-direction: column;
   align-items: center; gap: 18px; text-align: center;
@@ -1116,4 +1228,6 @@ body::after {
   .jg__node { width: calc(50% - 14px); }
   .sec__cta { margin-top: 44px; }
   .sec__cta-soft { margin-top: 40px; }
+  .sistema-body { grid-template-columns: 1fr; gap: 0; }
+  .sistema-tl { display: none; }
 }

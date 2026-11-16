@@ -111,3 +111,33 @@ function closeM() {
 document.getElementById('modal-x').addEventListener('click', closeM);
 document.getElementById('modal-bg').addEventListener('click', closeM);
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeM(); });
+
+// ========================
+// STICKY TIMELINE (sistema)
+// ========================
+(function() {
+  const stlItems = document.querySelectorAll('.stl__item');
+  const stlFill = document.getElementById('stl-fill');
+  const mcards = document.querySelectorAll('.mcard[data-phase]');
+  if (!stlItems.length || !stlFill || !mcards.length) return;
+
+  function activatePhase(phase) {
+    stlItems.forEach(item => {
+      const p = parseInt(item.dataset.phase);
+      item.classList.toggle('active', p <= phase);
+    });
+    // Fill height: map phase 0-3 → 0%-100%
+    const pct = phase === 0 ? 0 : Math.round((phase / (stlItems.length - 1)) * 100);
+    stlFill.style.height = pct + '%';
+  }
+
+  const phaseObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        activatePhase(parseInt(e.target.dataset.phase));
+      }
+    });
+  }, { threshold: 0.4, rootMargin: '0px 0px -20% 0px' });
+
+  mcards.forEach(card => phaseObs.observe(card));
+})();
