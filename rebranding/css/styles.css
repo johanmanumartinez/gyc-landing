@@ -1116,55 +1116,85 @@ body::after {
 .btn--gold-inv:active { transform: translateY(0) scale(0.97); transition-duration: 0.1s; }
 
 /* ---- SISTEMA LAYOUT (sticky timeline) ---- */
-.sistema-body {
+/* ---- SISTEMA ROWS — grid dot|card por fila ---- */
+.sistema-rows {
+  position: relative;
   display: grid;
   grid-template-columns: 68px 1fr;
-  gap: 40px;
-  align-items: stretch;
-  margin-top: 20px;
+  column-gap: 28px;
+  row-gap: 0;
+  margin-top: 32px;
 }
 
-.sistema-tl {
-  align-self: stretch;
-}
-
-.stl {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  padding: 4px 0;
-}
-
-/* Background track */
-.stl::before {
+/* Línea vertical de fondo */
+.sistema-rows::before {
   content: '';
   position: absolute;
-  left: 50%; top: 28px; bottom: 28px;
-  transform: translateX(-50%);
+  left: 33px;
+  top: 26px; bottom: 20px;
   width: 1px;
   background: rgba(199,154,106,0.12);
   z-index: 0;
 }
 
-/* Animated fill */
+/* Línea animada fill */
 .stl__fill {
   position: absolute;
-  left: 50%; top: 28px;
-  transform: translateX(-50%);
-  width: 2px; height: 0%;
+  left: 32px; top: 26px;
+  width: 2px; height: 0px;
   background: linear-gradient(to bottom,
     var(--gold) 0%,
-    rgba(199,154,106,0.7) 60%,
-    rgba(199,154,106,0.3) 100%);
+    rgba(199,154,106,0.6) 100%);
   z-index: 1;
-  transition: height 0.6s var(--ease-out-expo);
+  transition: height 0.55s var(--ease-out-expo);
   border-radius: 2px;
+  pointer-events: none;
+}
+
+/* Celda del dot (columna izquierda) */
+.srow__dot {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 24px;
+  padding-bottom: 28px;
+  position: relative; z-index: 2;
+}
+
+/* Celda de la card (columna derecha) */
+.srow__card {
+  padding-bottom: 28px;
+}
+
+/* Celda estrella */
+.srow__star {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0 0;
+  position: relative; z-index: 2;
+}
+
+/* Estado activo del dot */
+.srow__dot.active .stl__dot {
+  border-color: rgba(199,154,106,0.55);
+  background: radial-gradient(circle at 38% 32%,
+    rgba(220,180,110,0.95) 0%,
+    rgba(199,154,106,0.9) 45%,
+    rgba(160,110,60,0.85) 100%);
+  box-shadow:
+    0 0 0 5px rgba(199,154,106,0.07),
+    0 0 18px rgba(199,154,106,0.4),
+    0 0 36px rgba(199,154,106,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+.srow__dot.active .stl__icon {
+  color: var(--gyc-espresso);
+  transform: scale(1.05);
 }
 
 .stl__item {
+  /* legacy — mantener por compatibilidad */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1264,8 +1294,12 @@ body::after {
   .jg__node { width: calc(50% - 14px); }
   .sec__cta { margin-top: 44px; }
   .sec__cta-soft { margin-top: 40px; }
-  .sistema-body { grid-template-columns: 44px 1fr; gap: 20px; }
+  .sistema-rows { grid-template-columns: 44px 1fr; column-gap: 16px; }
+  .sistema-rows::before { left: 21px; }
+  .stl__fill { left: 20px; }
   .stl__dot { width: 38px; height: 38px; }
   .stl__icon { width: 15px; height: 15px; }
   .stl__star { width: 22px; height: 22px; }
+  .srow__dot { padding-top: 20px; padding-bottom: 20px; }
+  .srow__card { padding-bottom: 20px; }
 }

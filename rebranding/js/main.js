@@ -116,33 +116,45 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.clas
 // SCROLL TIMELINE (sistema)
 // ========================
 (function() {
-  const stlFill = document.getElementById('stl-fill');
-  const starItem = document.getElementById('stl-star');
+  const fill = document.getElementById('stl-fill');
+  const star = document.getElementById('stl-star');
   const mcards = [...document.querySelectorAll('.mcard[data-phase]')];
-  const phaseItems = [...document.querySelectorAll('.stl__item[data-phase]')];
-  if (!stlFill || !mcards.length || !phaseItems.length) return;
+  const dots  = [...document.querySelectorAll('.srow__dot[data-phase]')];
+  if (!fill || !mcards.length || !dots.length) return;
 
-  const totalPhases = phaseItems.length - 1; // 3
   let lastPhase = -1;
 
   function activatePhase(phase) {
     if (phase === lastPhase) return;
     lastPhase = phase;
-    phaseItems.forEach(item => {
-      item.classList.toggle('active', parseInt(item.dataset.phase) <= phase);
-    });
-    const pct = phase === 0 ? 8 : Math.round((phase / totalPhases) * 86);
-    stlFill.style.height = pct + '%';
-    if (starItem) starItem.classList.toggle('active', phase >= totalPhases);
+
+    // Iluminar dots acumulativamente
+    dots.forEach(d => d.classList.toggle('active', parseInt(d.dataset.phase) <= phase));
+
+    // Altura dinámica: del centro del primer dot al centro del dot activo
+    const container = fill.parentElement;
+    const cr = container.getBoundingClientRect();
+    const firstDot = dots[0].querySelector('.stl__dot');
+    const activeDot = dots[phase].querySelector('.stl__dot');
+    if (firstDot && activeDot) {
+      const fr = firstDot.getBoundingClientRect();
+      const ar = activeDot.getBoundingClientRect();
+      const startY = fr.top + fr.height / 2 - cr.top;
+      const endY   = ar.top + ar.height / 2 - cr.top;
+      fill.style.top    = startY + 'px';
+      fill.style.height = Math.max(0, endY - startY) + 'px';
+    }
+
+    // Estrella cuando se completan las 4 fases
+    if (star) star.classList.toggle('active', phase >= dots.length - 1);
   }
 
   function onScroll() {
-    // Trigger when top 40% of card crosses 60% of viewport height
-    const trigger = window.innerHeight * 0.6;
+    const trigger = window.innerHeight * 0.62;
     let current = -1;
     mcards.forEach(card => {
       const r = card.getBoundingClientRect();
-      if (r.top + r.height * 0.4 < trigger) {
+      if (r.top + r.height * 0.35 < trigger) {
         current = Math.max(current, parseInt(card.dataset.phase));
       }
     });
@@ -150,6 +162,5 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.clas
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  // Correr al cargar por si la sección ya es visible
-  setTimeout(onScroll, 200);
+  setTimeout(onScroll, 250);
 })();

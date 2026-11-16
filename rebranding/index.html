@@ -207,140 +207,90 @@
         No importa qué tan bueno seas como profesional — sin un sistema, tu crecimiento depende de la suerte. Cada fase está diseñada para que la clínica funcione con un motor propio, no con tu esfuerzo manual constante.
       </p>
 
-      <div class="sistema-body">
-        <aside class="sistema-tl">
-          <div class="stl">
-            <div class="stl__fill" id="stl-fill"></div>
+      <!-- Grid: cada fila = [dot izquierdo | card derecha], alineación perfecta -->
+      <div class="sistema-rows">
+        <div class="stl__fill" id="stl-fill"></div>
 
-            <!-- 01 Claridad — pulso EKG -->
-            <div class="stl__item active" data-phase="0">
-              <div class="stl__dot">
-                <svg class="stl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- 02 Adquisición — diana -->
-            <div class="stl__item" data-phase="1">
-              <div class="stl__dot">
-                <svg class="stl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                  <circle cx="12" cy="12" r="9"/>
-                  <circle cx="12" cy="12" r="5"/>
-                  <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- 03 Conversión — burbuja de chat -->
-            <div class="stl__item" data-phase="2">
-              <div class="stl__dot">
-                <svg class="stl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- 04 Retención — flechas circulares -->
-            <div class="stl__item" data-phase="3">
-              <div class="stl__dot">
-                <svg class="stl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="23 4 23 10 17 10"/>
-                  <polyline points="1 20 1 14 7 14"/>
-                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-                </svg>
-              </div>
-            </div>
-
-            <!-- ESTRELLA final — sistema completo -->
-            <div class="stl__item stl__item--star" id="stl-star">
-              <svg class="stl__star" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2l2.4 7.3H22l-6.2 4.5 2.4 7.3L12 17.1l-6.2 4 2.4-7.3L2 9.3h7.6z"/>
-              </svg>
-            </div>
-
-          </div>
-        </aside>
-
-        <div class="sistema-content">
-          <!-- MOTION GRAPHIC -->
-          <div class="jg-wrap reveal" data-d="0.2">
-            <div class="jg-track">
-              <div class="jg-track__dot"></div>
-              <div class="jg-track__dot jg-track__dot--2"></div>
-              <div class="jg-track__dot jg-track__dot--3"></div>
-            </div>
-            <div class="jg">
-              <div class="jg__node">
-                <div class="jg__circle">
-                  <svg class="jg__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                  </svg>
-                </div>
-                <span class="jg__num">01</span>
-                <span class="jg__label">Claridad</span>
-              </div>
-              <div class="jg__node">
-                <div class="jg__circle">
-                  <svg class="jg__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-                    <circle cx="12" cy="12" r="9"/>
-                    <circle cx="12" cy="12" r="5"/>
-                    <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
-                  </svg>
-                </div>
-                <span class="jg__num">02</span>
-                <span class="jg__label">Adquisición</span>
-              </div>
-              <div class="jg__node">
-                <div class="jg__circle">
-                  <svg class="jg__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                  </svg>
-                </div>
-                <span class="jg__num">03</span>
-                <span class="jg__label">Conversión</span>
-              </div>
-              <div class="jg__node">
-                <div class="jg__circle">
-                  <svg class="jg__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="23 4 23 10 17 10"/>
-                    <polyline points="1 20 1 14 7 14"/>
-                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-                  </svg>
-                </div>
-                <span class="jg__num">04</span>
-                <span class="jg__label">Retención</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="cards-4">
-            <div class="mcard reveal" data-d="0.1" data-phase="0">
-              <span class="mcard__n">01</span>
-              <h3 class="mcard__t">Claridad</h3>
-              <div class="mcard__line"></div>
-              <p>Entendemos juntos los números de tu clínica — qué servicio te deja más, cuánto te cuesta cada paciente, dónde estás dejando dinero en la mesa.</p>
-            </div>
-            <div class="mcard reveal" data-d="0.2" data-phase="1">
-              <span class="mcard__n">02</span>
-              <h3 class="mcard__t">Adquisición</h3>
-              <div class="mcard__line"></div>
-              <p>Montamos el sistema para que lleguen pacientes nuevos todos los días, sin depender del boca a boca ni de la suerte.</p>
-            </div>
-            <div class="mcard reveal" data-d="0.3" data-phase="2">
-              <span class="mcard__n">03</span>
-              <h3 class="mcard__t">Conversión</h3>
-              <div class="mcard__line"></div>
-              <p>Cada persona que pregunta se atiende rápido, se agenda y recibe seguimiento — sin que se escape ninguna. Vita trabaja las 24 horas.</p>
-            </div>
-            <div class="mcard reveal" data-d="0.4" data-phase="3">
-              <span class="mcard__n">04</span>
-              <h3 class="mcard__t">Retención</h3>
-              <div class="mcard__line"></div>
-              <p>Tus pacientes vuelven, compran otros servicios y te refieren. Tu clínica crece sobre la base que ya tienes.</p>
-            </div>
+        <!-- 01 Claridad -->
+        <div class="srow__dot" data-phase="0">
+          <div class="stl__dot">
+            <svg class="stl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
           </div>
         </div>
+        <div class="srow__card">
+          <div class="mcard reveal" data-phase="0">
+            <span class="mcard__n">01</span>
+            <h3 class="mcard__t">Claridad</h3>
+            <div class="mcard__line"></div>
+            <p>Entendemos juntos los números de tu clínica — qué servicio te deja más, cuánto te cuesta cada paciente, dónde estás dejando dinero en la mesa.</p>
+          </div>
+        </div>
+
+        <!-- 02 Adquisición -->
+        <div class="srow__dot" data-phase="1">
+          <div class="stl__dot">
+            <svg class="stl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        </div>
+        <div class="srow__card">
+          <div class="mcard reveal" data-phase="1">
+            <span class="mcard__n">02</span>
+            <h3 class="mcard__t">Adquisición</h3>
+            <div class="mcard__line"></div>
+            <p>Montamos el sistema para que lleguen pacientes nuevos todos los días, sin depender del boca a boca ni de la suerte.</p>
+          </div>
+        </div>
+
+        <!-- 03 Conversión -->
+        <div class="srow__dot" data-phase="2">
+          <div class="stl__dot">
+            <svg class="stl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+        </div>
+        <div class="srow__card">
+          <div class="mcard reveal" data-phase="2">
+            <span class="mcard__n">03</span>
+            <h3 class="mcard__t">Conversión</h3>
+            <div class="mcard__line"></div>
+            <p>Cada persona que pregunta se atiende rápido, se agenda y recibe seguimiento — sin que se escape ninguna. Vita trabaja las 24 horas.</p>
+          </div>
+        </div>
+
+        <!-- 04 Retención -->
+        <div class="srow__dot" data-phase="3">
+          <div class="stl__dot">
+            <svg class="stl__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"/>
+              <polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </div>
+        </div>
+        <div class="srow__card">
+          <div class="mcard reveal" data-phase="3">
+            <span class="mcard__n">04</span>
+            <h3 class="mcard__t">Retención</h3>
+            <div class="mcard__line"></div>
+            <p>Tus pacientes vuelven, compran otros servicios y te refieren. Tu clínica crece sobre la base que ya tienes.</p>
+          </div>
+        </div>
+
+        <!-- Estrella final -->
+        <div class="srow__star" id="stl-star">
+          <svg class="stl__star" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.4 7.3H22l-6.2 4.5 2.4 7.3L12 17.1l-6.2 4 2.4-7.3L2 9.3h7.6z"/>
+          </svg>
+        </div>
+        <div></div>
+
       </div>
     </div>
   </section>
