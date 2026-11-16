@@ -121,14 +121,20 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.clas
   const mcards = document.querySelectorAll('.mcard[data-phase]');
   if (!stlItems.length || !stlFill || !mcards.length) return;
 
+  const starItem = document.getElementById('stl-star');
+  const phaseItems = [...stlItems].filter(el => el.dataset.phase !== undefined);
+  const totalPhases = phaseItems.length - 1; // 0-3
+
   function activatePhase(phase) {
-    stlItems.forEach(item => {
+    phaseItems.forEach(item => {
       const p = parseInt(item.dataset.phase);
       item.classList.toggle('active', p <= phase);
     });
-    // Fill height: map phase 0-3 → 0%-100%
-    const pct = phase === 0 ? 0 : Math.round((phase / (stlItems.length - 1)) * 100);
+    // Fill: 0% at phase 0, fills toward star as phases progress
+    const pct = phase === 0 ? 8 : Math.round((phase / totalPhases) * 88);
     stlFill.style.height = pct + '%';
+    // Star lights up only when all 4 phases complete
+    if (starItem) starItem.classList.toggle('active', phase >= totalPhases);
   }
 
   const phaseObs = new IntersectionObserver(entries => {
