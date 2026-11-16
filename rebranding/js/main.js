@@ -140,7 +140,12 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.clas
       const fr = firstDot.getBoundingClientRect();
       const ar = activeDot.getBoundingClientRect();
       const startY = fr.top + fr.height / 2 - cr.top;
-      const endY   = ar.top + ar.height / 2 - cr.top;
+      // Si es la última fase, llegar hasta el centro de la estrella
+      let endY = ar.top + ar.height / 2 - cr.top;
+      if (phase >= dots.length - 1 && star) {
+        const sr = star.getBoundingClientRect();
+        endY = sr.top + sr.height / 2 - cr.top;
+      }
       fill.style.top    = startY + 'px';
       fill.style.height = Math.max(0, endY - startY) + 'px';
     }
