@@ -2,34 +2,24 @@
    GROW YOUR CLINIC — v6 PREMIUM
    ======================================== */
 
-// Preloader — isotipo animado
+// Preloader 3D
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
-  const dots = preloader.querySelectorAll('.p-dot');
-  const line = preloader.querySelector('.p-line');
+  const letters = preloader.querySelectorAll('.p3d');
 
-  // Círculos aparecen uno a uno con bounce
-  dots.forEach((d, i) => {
-    setTimeout(() => d.classList.add('visible'), 200 + i * 320);
+  letters.forEach((l, i) => {
+    setTimeout(() => l.classList.add('visible'), 300 + i * 300);
   });
 
-  // Línea se dibuja tras el último círculo
-  setTimeout(() => line.classList.add('draw'), 200 + 3 * 320);
-
-  // Glow + texto
-  setTimeout(() => preloader.classList.add('glow-active'), 1550);
-
-  // Burst
-  setTimeout(() => preloader.classList.add('burst'), 2500);
-
-  // Hidden
+  setTimeout(() => preloader.classList.add('glow-active'), 1300);
+  setTimeout(() => preloader.classList.add('burst'), 2200);
   setTimeout(() => {
     preloader.classList.add('hidden');
     document.querySelectorAll('.hero .anim-fade').forEach(el => {
       const d = parseFloat(el.dataset.d || 0) * 1000;
       setTimeout(() => el.classList.add('visible'), d);
     });
-  }, 3100);
+  }, 2700);
 });
 
 // Nav scroll
@@ -81,7 +71,7 @@ const cObs = new IntersectionObserver(entries => {
 if (cEl) cObs.observe(cEl);
 
 // Card spotlight hover (mouse-tracking radial glow)
-document.querySelectorAll('.card, .mcard, .icard, .bcard, .plus-card').forEach(card => {
+document.querySelectorAll('.card, .mcard, .icard, .bcard').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
     card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
@@ -111,82 +101,3 @@ function closeM() {
 document.getElementById('modal-x').addEventListener('click', closeM);
 document.getElementById('modal-bg').addEventListener('click', closeM);
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeM(); });
-
-// ========================
-// SCROLL TIMELINE (sistema)
-// ========================
-(function() {
-  const fill = document.getElementById('stl-fill');
-  const star = document.getElementById('stl-star');
-  const mcards = [...document.querySelectorAll('.mcard[data-phase]')];
-  const dots  = [...document.querySelectorAll('.srow__dot[data-phase]')];
-  if (!fill || !mcards.length || !dots.length) return;
-
-  let lastPhase = -1;
-
-  function activatePhase(phase) {
-    if (phase === lastPhase) return;
-    lastPhase = phase;
-
-    // Iluminar dots acumulativamente
-    dots.forEach(d => d.classList.toggle('active', parseInt(d.dataset.phase) <= phase));
-
-    // Altura dinámica: del centro del primer dot al centro del dot activo
-    const container = fill.parentElement;
-    const cr = container.getBoundingClientRect();
-    const firstDot = dots[0].querySelector('.stl__dot');
-    const activeDot = dots[phase].querySelector('.stl__dot');
-    if (firstDot && activeDot) {
-      const fr = firstDot.getBoundingClientRect();
-      const ar = activeDot.getBoundingClientRect();
-      const startY = fr.top + fr.height / 2 - cr.top;
-      // Si es la última fase, llegar hasta el centro de la estrella
-      let endY = ar.top + ar.height / 2 - cr.top;
-      if (phase >= dots.length - 1 && star) {
-        const sr = star.getBoundingClientRect();
-        endY = sr.top + sr.height / 2 - cr.top;
-      }
-      fill.style.top    = startY + 'px';
-      fill.style.height = Math.max(0, endY - startY) + 'px';
-    }
-
-    // Estrella cuando se completan las 4 fases
-    if (star) star.classList.toggle('active', phase >= dots.length - 1);
-  }
-
-  function onScroll() {
-    const trigger = window.innerHeight * 0.62;
-    let current = -1;
-    mcards.forEach(card => {
-      const r = card.getBoundingClientRect();
-      if (r.top + r.height * 0.35 < trigger) {
-        current = Math.max(current, parseInt(card.dataset.phase));
-      }
-    });
-    if (current >= 0) activatePhase(current);
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  setTimeout(onScroll, 250);
-
-  // Observer directo para la estrella — se activa cuando entra al viewport
-  if (star) {
-    new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        star.classList.add('active');
-        // Extender fill hasta el centro de la estrella
-        const container = fill.parentElement;
-        const cr = container.getBoundingClientRect();
-        const firstDotEl = dots[0] && dots[0].querySelector('.stl__dot');
-        const sr = star.getBoundingClientRect();
-        if (firstDotEl) {
-          const fr = firstDotEl.getBoundingClientRect();
-          const startY = fr.top + fr.height / 2 - cr.top;
-          const endY   = sr.top + sr.height / 2 - cr.top;
-          fill.style.top    = startY + 'px';
-          fill.style.height = Math.max(0, endY - startY) + 'px';
-        }
-      }
-    }, { threshold: 0.4 }).observe(star);
-  }
-})();
