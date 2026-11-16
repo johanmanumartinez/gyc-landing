@@ -1204,37 +1204,34 @@ body::after {
   transform: scale(1.05);
 }
 
-/* Star node */
-.stl__dot--star {
-  width: 44px; height: 44px;
-  border-color: rgba(199,154,106,0.1);
-  background: rgba(42,27,18,0.6);
+/* Star — sin círculo, solo la estrella */
+.stl__item--star {
+  margin-top: 6px;
 }
-.stl__item--star.active .stl__dot--star {
-  border-color: rgba(199,154,106,0.7);
-  background: radial-gradient(circle at 38% 32%,
-    rgba(255,220,120,1) 0%,
-    rgba(220,170,80,0.95) 50%,
-    rgba(180,120,40,0.9) 100%);
-  box-shadow:
-    0 0 0 6px rgba(199,154,106,0.1),
-    0 0 24px rgba(220,170,80,0.55),
-    0 0 48px rgba(199,154,106,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.2);
-  animation: starPulse 2.4s ease-in-out infinite;
+.stl__star {
+  width: 28px; height: 28px;
+  color: rgba(199,154,106,0.15);
+  transition: color 0.6s, filter 0.6s, transform 0.5s var(--ease-out-expo);
+  filter: drop-shadow(0 0 0px transparent);
 }
-
-.stl__icon--star {
-  width: 18px; height: 18px;
-  color: rgba(199,154,106,0.2);
-}
-.stl__item--star.active .stl__icon--star {
-  color: var(--gyc-espresso);
+.stl__item--star.active .stl__star {
+  color: var(--gold);
+  transform: scale(1.18);
+  filter:
+    drop-shadow(0 0 6px rgba(220,170,80,0.8))
+    drop-shadow(0 0 14px rgba(199,154,106,0.5));
+  animation: starGlow 2.2s ease-in-out infinite;
 }
 
-@keyframes starPulse {
-  0%, 100% { box-shadow: 0 0 0 6px rgba(199,154,106,0.1), 0 0 24px rgba(220,170,80,0.55), 0 0 48px rgba(199,154,106,0.25), inset 0 1px 0 rgba(255,255,255,0.2); }
-  50% { box-shadow: 0 0 0 10px rgba(199,154,106,0.06), 0 0 36px rgba(220,170,80,0.7), 0 0 64px rgba(199,154,106,0.35), inset 0 1px 0 rgba(255,255,255,0.2); }
+@keyframes starGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(220,170,80,0.8)) drop-shadow(0 0 14px rgba(199,154,106,0.5));
+    transform: scale(1.18);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(220,170,80,1)) drop-shadow(0 0 22px rgba(199,154,106,0.7));
+    transform: scale(1.26);
+  }
 }
 
 /* ---- PLUS SUBHEADLINE ---- */
@@ -1267,7 +1264,8 @@ body::after {
   .jg__node { width: calc(50% - 14px); }
   .sec__cta { margin-top: 44px; }
   .sec__cta-soft { margin-top: 40px; }
-  .sistema-body { grid-template-columns: 1fr; gap: 0; }
-  .sistema-tl { display: none; }
-  .sistema-content { width: 100%; }
+  .sistema-body { grid-template-columns: 44px 1fr; gap: 20px; }
+  .stl__dot { width: 38px; height: 38px; }
+  .stl__icon { width: 15px; height: 15px; }
+  .stl__star { width: 22px; height: 22px; }
 }

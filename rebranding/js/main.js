@@ -113,37 +113,43 @@ document.getElementById('modal-bg').addEventListener('click', closeM);
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeM(); });
 
 // ========================
-// STICKY TIMELINE (sistema)
+// SCROLL TIMELINE (sistema)
 // ========================
 (function() {
-  const stlItems = document.querySelectorAll('.stl__item');
   const stlFill = document.getElementById('stl-fill');
-  const mcards = document.querySelectorAll('.mcard[data-phase]');
-  if (!stlItems.length || !stlFill || !mcards.length) return;
-
   const starItem = document.getElementById('stl-star');
-  const phaseItems = [...stlItems].filter(el => el.dataset.phase !== undefined);
-  const totalPhases = phaseItems.length - 1; // 0-3
+  const mcards = [...document.querySelectorAll('.mcard[data-phase]')];
+  const phaseItems = [...document.querySelectorAll('.stl__item[data-phase]')];
+  if (!stlFill || !mcards.length || !phaseItems.length) return;
+
+  const totalPhases = phaseItems.length - 1; // 3
+  let lastPhase = -1;
 
   function activatePhase(phase) {
+    if (phase === lastPhase) return;
+    lastPhase = phase;
     phaseItems.forEach(item => {
-      const p = parseInt(item.dataset.phase);
-      item.classList.toggle('active', p <= phase);
+      item.classList.toggle('active', parseInt(item.dataset.phase) <= phase);
     });
-    // Fill: 0% at phase 0, fills toward star as phases progress
-    const pct = phase === 0 ? 8 : Math.round((phase / totalPhases) * 88);
+    const pct = phase === 0 ? 8 : Math.round((phase / totalPhases) * 86);
     stlFill.style.height = pct + '%';
-    // Star lights up only when all 4 phases complete
     if (starItem) starItem.classList.toggle('active', phase >= totalPhases);
   }
 
-  const phaseObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        activatePhase(parseInt(e.target.dataset.phase));
+  function onScroll() {
+    // Trigger when top 40% of card crosses 60% of viewport height
+    const trigger = window.innerHeight * 0.6;
+    let current = -1;
+    mcards.forEach(card => {
+      const r = card.getBoundingClientRect();
+      if (r.top + r.height * 0.4 < trigger) {
+        current = Math.max(current, parseInt(card.dataset.phase));
       }
     });
-  }, { threshold: 0.4, rootMargin: '0px 0px -20% 0px' });
+    if (current >= 0) activatePhase(current);
+  }
 
-  mcards.forEach(card => phaseObs.observe(card));
+  window.addEventListener('scroll', onScroll, { passive: true });
+  // Correr al cargar por si la sección ya es visible
+  setTimeout(onScroll, 200);
 })();
