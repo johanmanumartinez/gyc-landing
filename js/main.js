@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
   });
 
   // Línea se dibuja tras el último círculo
-  setTimeout(() => line.classList.add('draw'), 200 + 3 * 320);
+  setTimeout(() => line.classList.add('draw'), 200 + 4 * 320);
 
   // Glow + texto
   setTimeout(() => preloader.classList.add('glow-active'), 1550);
