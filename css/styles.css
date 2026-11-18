@@ -187,24 +187,6 @@ ul { list-style: none; }
   opacity: 0.03;
   animation: markFloat 28s ease-in-out infinite reverse;
 }
-.bg-mark--c {
-  width: 420px; height: 420px;
-  top: 38%; right: -90px;
-  opacity: 0.028;
-  animation: markFloat 25s ease-in-out infinite 6s;
-}
-.bg-mark--d {
-  width: 260px; height: 260px;
-  top: 62%; left: 25%;
-  opacity: 0.022;
-  animation: markFloat 32s ease-in-out infinite 12s reverse;
-}
-.bg-mark--e {
-  width: 360px; height: 360px;
-  bottom: 20%; right: 8%;
-  opacity: 0.026;
-  animation: markFloat 20s ease-in-out infinite 3s;
-}
 @keyframes markFloat {
   0%, 100% { transform: rotate(0deg) scale(1); }
   33%  { transform: rotate(4deg) scale(1.04); }
